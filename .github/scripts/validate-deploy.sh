@@ -17,4 +17,15 @@ if [[ -n "${POD_STATUSES}" ]]; then
   exit 1
 fi
 
+if [[ "${CLUSTER_TYPE}" =~ ocp4 ]]; then
+  if kubectl get consolelink toolkit-dashboard 1> /dev/null 2> /dev/null; then
+    echo "ConsoleLink installed"
+    kubectl get consolelink toolkit-dashboard
+  else
+    echo "ConsoleLink not found"
+    kubectl get consolelink
+    exit 1
+  fi
+fi
+
 exit 0
