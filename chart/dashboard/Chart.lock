@@ -1,9 +1,9 @@
 dependencies:
 - name: developer-dashboard
   repository: https://ibm-garage-cloud.github.io/toolkit-charts/
-  version: 1.1.0
+  version: 1.1.1
 - name: tool-config
   repository: https://ibm-garage-cloud.github.io/toolkit-charts/
   version: 0.7.0
-digest: sha256:1f42366974222927dd0cbab90a7f2b84e3dd3815c7ab67c99373d4c5cda492f7
-generated: "2020-07-10T00:50:40.779246-05:00"
+digest: sha256:b289ede0dad91bac868d3a316ce97485775469663c45d3e3d73bd0544efeaa8e
+generated: "2020-07-10T09:07:16.456534-05:00"
