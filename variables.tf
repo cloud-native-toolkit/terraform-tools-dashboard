@@ -33,7 +33,7 @@ variable "tls_secret_name" {
 variable "image_tag" {
   type        = string
   description = "The image version tag to use"
-  default     = "v1.3.10"
+  default     = "v1.3.11"
 }
 
 variable "chart_version" {
