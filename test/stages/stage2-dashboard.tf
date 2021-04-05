@@ -1,9 +1,9 @@
 module "dev_tools_dashboard" {
   source = "./module"
 
-  cluster_ingress_hostname = module.dev_cluster.ingress_hostname
+  cluster_ingress_hostname = module.dev_cluster.platform.ingress
   cluster_config_file      = module.dev_cluster.config_file_path
-  cluster_type             = module.dev_cluster.type_code
-  tls_secret_name          = module.dev_cluster.tls_secret_name
+  cluster_type             = module.dev_cluster.platform.type_code
+  tls_secret_name          = module.dev_cluster.platform.tls_secret
   releases_namespace       = module.dev_capture_state.namespace
 }
