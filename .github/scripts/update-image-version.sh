@@ -5,7 +5,7 @@ REPO_DIR=$(cd "${SCRIPT_DIR}/../.."; pwd -P)
 
 REPO_SLUG="$1"
 if [[ -z "${REPO_SLUG}" ]]; then
-  REPO_SLUG="cloud-native-toolkit/developer-dashboard"
+  REPO_SLUG="ibmgaragecloud/developer-dashboard"
 fi
 
 set -e
