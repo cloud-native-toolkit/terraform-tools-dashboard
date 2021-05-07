@@ -1,5 +1,5 @@
 module "dev_cluster" {
-  source = "github.com/cloud-native-toolkit/terraform-ibm-ocp-vpc.git"
+  source = "github.com/cloud-native-toolkit/terraform-ibm-ocp-vpc.git?ref=v1.2.5"
 
   resource_group_name     = var.resource_group_name
   region                  = var.region
@@ -11,4 +11,5 @@ module "dev_cluster" {
   cos_id                  = ""
   vpc_subnet_count        = 1
   vpc_name                = ""
+  vpc_subnets             = []
 }
