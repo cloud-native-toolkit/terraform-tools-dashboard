@@ -23,11 +23,11 @@ locals {
     tlsSecretName = var.tls_secret_name
     iconHost = local.icon_host
   }
-  tool_config = {
-    name = "dashboard"
-    url = local.endpoint_url
-    applicationMenu = true
-    displayName = "Developer Dashboard"
+}
+
+resource null_resource print_toolkit_namespace {
+  provisioner "local-exec" {
+    command = "echo 'Toolkit namespace: ${var.toolkit_namespace}'"
   }
 }
 
@@ -50,12 +50,11 @@ resource "null_resource" "delete-consolelink" {
 }
 
 resource "local_file" "dashboard-values" {
-  depends_on = [null_resource.setup-chart, null_resource.delete-consolelink]
+  depends_on = [null_resource.setup-chart, null_resource.delete-consolelink, null_resource.print_toolkit_namespace]
 
   content  = yamlencode({
     global = local.global
     developer-dashboard = local.dashboard_config
-    tool-config = local.tool_config
   })
   filename = "${local.chart_dir}/values.yaml"
 }

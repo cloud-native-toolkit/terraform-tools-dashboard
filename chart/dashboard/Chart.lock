@@ -1,9 +1,6 @@
 dependencies:
 - name: developer-dashboard
-  repository: https://ibm-garage-cloud.github.io/toolkit-charts/
-  version: 1.2.1
-- name: tool-config
-  repository: https://ibm-garage-cloud.github.io/toolkit-charts/
-  version: 0.8.1
-digest: sha256:5eab4447be5503b48d8bbe1cd0a6349b5a125f9d8acdd768bc3554efe2a6561c
-generated: "2020-09-14T21:27:50.711226-05:00"
+  repository: https://charts.cloudnativetoolkit.dev/
+  version: 1.4.1
+digest: sha256:106154d97d7db6b9284fd7fe9afd705a4d150c59b6da63bf4773d3cb966a4674
+generated: "2021-11-07T23:14:36.184619-06:00"
