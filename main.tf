@@ -23,12 +23,6 @@ locals {
     tlsSecretName = var.tls_secret_name
     iconHost = local.icon_host
   }
-  tool_config = {
-    name = "dashboard"
-    url = local.endpoint_url
-    applicationMenu = true
-    displayName = "Developer Dashboard"
-  }
 }
 
 resource "null_resource" "setup-chart" {
@@ -37,25 +31,12 @@ resource "null_resource" "setup-chart" {
   }
 }
 
-resource "null_resource" "delete-consolelink" {
-  count = var.cluster_type != "kubernetes" ? 1 : 0
-
-  provisioner "local-exec" {
-    command = "kubectl delete consolelink -l grouping=garage-cloud-native-toolkit -l app=dashboard || exit 0"
-
-    environment = {
-      KUBECONFIG = var.cluster_config_file
-    }
-  }
-}
-
 resource "local_file" "dashboard-values" {
-  depends_on = [null_resource.setup-chart, null_resource.delete-consolelink]
+  depends_on = [null_resource.setup-chart]
 
   content  = yamlencode({
     global = local.global
     developer-dashboard = local.dashboard_config
-    tool-config = local.tool_config
   })
   filename = "${local.chart_dir}/values.yaml"
 }
